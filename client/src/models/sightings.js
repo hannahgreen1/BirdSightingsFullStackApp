@@ -11,6 +11,7 @@ Sightings.prototype.bindEvents = function () {
   });
 
   PubSub.subscribe('SightingView:sighting-submitted', (evt) => {
+    console.log(evt.detail);
     this.postSighting(evt.detail);
   })
 };
@@ -26,6 +27,7 @@ Sightings.prototype.getData = function () {
 
 Sightings.prototype.postSighting = function (sighting) {
   const request = new Request(this.url);
+  console.log(sighting);
   request.post(sighting)
     .then((sightings) => {
       PubSub.publish('Sightings:data-loaded', sightings);

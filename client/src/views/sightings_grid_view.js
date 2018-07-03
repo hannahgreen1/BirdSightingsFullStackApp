@@ -14,6 +14,7 @@ SightingsGridView.prototype.bindEvents = function () {
 SightingsGridView.prototype.render = function (sightings) {
   this.container.innerHTML = '';
   const sightingView = new SightingView(this.container);
+  console.log(sightings);
   sightings.forEach((sighting) => sightingView.render(sighting));
 };
 
